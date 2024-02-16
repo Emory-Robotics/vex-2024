@@ -99,6 +99,7 @@ void intake(void);
 void score(void);
 void catapultControl(void);
 void lower(void);
+void fire(void);
 
 #ifdef __cplusplus
 }

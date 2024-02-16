@@ -29,9 +29,15 @@ void catapultControl(){
         catapultMotorRight.move_velocity(0);
     }
 
-    if(buttonSensor.get_value() == 0){
+    if(!launching){
         if(master.get_digital(pros::E_CONTROLLER_DIGITAL_A)){
             lower();
+            launching = true;
+        }
+    } else {
+        if(master.get_digital(pros::E_CONTROLLER_DIGITAL_B)){
+            fire();
+            launching = false;
         }
     }
 
@@ -43,6 +49,14 @@ void lower(){
         catapultMotorRight.move_velocity(max_analog);
         pros::delay(20);
     }
+    catapultMotorLeft.move_velocity(0);
+    catapultMotorRight.move_velocity(0);
+}
+void fire(){
+    // fire catapult
+    catapultMotorLeft.move_velocity(-max_analog);
+    catapultMotorRight.move_velocity(max_analog);
+    pros::delay(200);
     catapultMotorLeft.move_velocity(0);
     catapultMotorRight.move_velocity(0);
 }
