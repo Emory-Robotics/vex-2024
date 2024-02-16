@@ -83,6 +83,7 @@ extern pros::Motor intakeMotor;
 
 extern pros::Motor catapultMotorLeft;
 extern pros::Motor catapultMotorRight;
+extern pros::Motor_Group catapult;
 
 extern pros::Vision visionSensor;
 

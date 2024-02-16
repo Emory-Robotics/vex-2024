@@ -13,12 +13,13 @@ pros::Motor backRight(6, pros::E_MOTOR_GEARSET_06);
 
 pros::Motor intakeMotor(7, pros::E_MOTOR_GEARSET_18);
 
-pros::Motor catapultMotorLeft(8, pros::E_MOTOR_GEARSET_36);
+pros::Motor catapultMotorLeft(8, pros::E_MOTOR_GEARSET_36, true);
 pros::Motor catapultMotorRight(9, pros::E_MOTOR_GEARSET_36);
+pros::Motor_Group catapult({catapultMotorLeft, catapultMotorRight});
 
 pros::Vision visionSensor(11);
 
-pros::ADIDigitalIn buttonSensor ('H');
+pros::ADIDigitalIn buttonSensor ('A');
 
 std::shared_ptr<OdomChassisController> chassis =
       ChassisControllerBuilder()

@@ -24,9 +24,6 @@ void on_center_button() {
  */
 void initialize() {
 	pros::lcd::initialize();
-	pros::lcd::set_text(1, "Hello PROS User!");
-
-	pros::lcd::register_btn1_cb(on_center_button);
 
 	pros::Task guiTask(gui);
 }
@@ -82,11 +79,12 @@ void autonomous() {
 void opcontrol() {
 	catapultMotorLeft.tare_position();
 	catapultMotorRight.tare_position();
+
 	while (true) {
 		driveControl();
 		intakeControl();
 		catapultControl();
-		gui();
+		//gui();
 
 		pros::delay(20);
 	}
