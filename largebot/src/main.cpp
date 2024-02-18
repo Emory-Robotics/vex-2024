@@ -26,6 +26,9 @@ void initialize() {
 	pros::lcd::initialize();
 
 	pros::Task guiTask(gui);
+
+	intakeMotor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+	catapult.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
 }
 
 /**

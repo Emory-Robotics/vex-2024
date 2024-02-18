@@ -4,8 +4,7 @@
 int launching = false;
 
 void catapultControl(){
-    // intake control code (for driver control)
-    catapult.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
+    // catapult control code (for driver control)
     if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)){
         catapult.move_velocity(100);
     } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
@@ -33,14 +32,13 @@ void lower(){
         catapult.move_velocity(100);
         pros::delay(20);
     }
-    launching = false;
     catapultMotorLeft.move_velocity(0);
     catapultMotorRight.move_velocity(0);
 }
 void fire(){
     // fire catapult
     catapult.move_velocity(100);
-    pros::delay(200);
+    pros::delay(400);
     catapultMotorLeft.move_velocity(0);
     catapultMotorRight.move_velocity(0);
 }

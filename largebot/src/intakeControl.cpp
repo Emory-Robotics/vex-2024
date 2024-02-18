@@ -3,7 +3,6 @@
 
 void intakeControl(){
     // intake control code (for driver control)
-    intakeMotor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
     if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
         intakeMotor.move(max_analog);
     } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R1)){
@@ -15,7 +14,7 @@ void intakeControl(){
 void intake(){
     // intake one triball (for autonomous)
     intakeMotor.move(-max_analog);
-    pros::delay(1000);
+    pros::delay(2000);
     intakeMotor.move(0);
 }
 void score(){
