@@ -16,8 +16,8 @@ void catapultControl(){
 
     if(!launching){
         if(master.get_digital(pros::E_CONTROLLER_DIGITAL_A)){
-            lower();
             launching = true;
+            lower();
         }
     } else {
         if(master.get_digital(pros::E_CONTROLLER_DIGITAL_B)){
