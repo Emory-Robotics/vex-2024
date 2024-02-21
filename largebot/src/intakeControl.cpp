@@ -10,6 +10,13 @@ void intakeControl(){
     } else {
         intakeMotor.move_velocity(0);
     }
+
+    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
+        intakePiston.set_value(true);
+    }
+    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)){
+        intakePiston.set_value(false);
+    }
 }
 void intake(){
     // intake one triball (for autonomous)

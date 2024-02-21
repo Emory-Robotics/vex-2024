@@ -10,8 +10,8 @@ pros::Motor midRight(4, pros::E_MOTOR_GEARSET_06);
 pros::Motor backLeft(5, pros::E_MOTOR_GEARSET_06);
 pros::Motor backRight(6, pros::E_MOTOR_GEARSET_06);
 
-
 pros::Motor intakeMotor(7, pros::E_MOTOR_GEARSET_18);
+pros::ADIDigitalOut intakePiston ('B');
 
 pros::Motor catapultMotorLeft(8, pros::E_MOTOR_GEARSET_36, true);
 pros::Motor catapultMotorRight(9, pros::E_MOTOR_GEARSET_36);

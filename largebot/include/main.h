@@ -80,6 +80,7 @@ extern pros::Motor midRight;
 extern pros::Motor backRight;
 
 extern pros::Motor intakeMotor;
+extern pros::ADIDigitalOut intakePiston;
 
 extern pros::Motor catapultMotorLeft;
 extern pros::Motor catapultMotorRight;
