@@ -5,26 +5,27 @@ int launching = false;
 
 void catapultControl(){
     // catapult control code (for driver control)
-    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)){
-        catapult.move_velocity(100);
-    } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
-        catapult.move_velocity(-100);
-    } else {
-        catapult.move_velocity(0);
-    }
-
-    if(!launching){
-        if(master.get_digital(pros::E_CONTROLLER_DIGITAL_A)){
-            launching = true;
-            lower();
+    while(true){
+        if(master.get_digital(pros::E_CONTROLLER_DIGITAL_R2)){
+            catapult.move_velocity(100);
+        } else if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L2)){
+            catapult.move_velocity(-100);
+        } else {
+            catapult.move_velocity(0);
         }
-    } else {
-        if(master.get_digital(pros::E_CONTROLLER_DIGITAL_B)){
-            fire();
-            launching = false;
+
+        if(!launching){
+            if(master.get_digital(pros::E_CONTROLLER_DIGITAL_A)){
+                launching = true;
+                lower();
+            }
+        } else {
+            if(master.get_digital(pros::E_CONTROLLER_DIGITAL_B)){
+                fire();
+                launching = false;
+            }
         }
     }
-
 }
 void lower(){
     // prep catapult for launch

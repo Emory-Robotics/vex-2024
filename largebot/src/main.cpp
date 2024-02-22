@@ -26,6 +26,7 @@ void initialize() {
 	pros::lcd::initialize();
 
 	pros::Task guiTask(gui);
+	pros::Task catapultTask(catapultControl);
 
 	intakeMotor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	catapult.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
@@ -86,7 +87,7 @@ void opcontrol() {
 	while (true) {
 		driveControl();
 		intakeControl();
-		catapultControl();
+		//catapultControl();
 		//gui();
 
 		pros::delay(20);
