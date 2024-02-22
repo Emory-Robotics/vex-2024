@@ -26,6 +26,8 @@ void auton(){
     //chassis->moveDistance(12_in);
 
     //chassis->moveDistance(12_in);
+    chassis->moveDistance(12_in);
+    chassis->moveDistance(-12_in);
     chassis->turnAngle(90_deg);
     chassis->turnAngle(-45_deg);
     chassis->turnAngle(-45_deg);
