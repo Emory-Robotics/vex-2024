@@ -40,6 +40,7 @@ void initialize() {
  */
 void disabled() {
 	flapPiston.set_value(true);
+	chassis->stop();
 }
 
 /**
