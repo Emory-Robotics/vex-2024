@@ -10,6 +10,8 @@ pros::Motor backLeft(3, pros::E_MOTOR_GEARSET_06);
 
 pros::Motor intakeMotor(5, pros::E_MOTOR_GEARSET_18);
 
+pros::ADIDigitalOut flapPiston ('A');
+
 pros::Vision visionSensor(11);
 
 std::shared_ptr<OdomChassisController> chassis =

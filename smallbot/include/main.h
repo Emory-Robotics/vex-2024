@@ -79,8 +79,9 @@ extern pros::Motor backRight;
 
 extern pros::Motor intakeMotor;
 
-extern pros::Vision visionSensor;
+extern pros::ADIDigitalOut flapPiston;
 
+extern pros::Vision visionSensor;
 
 extern std::shared_ptr<OdomChassisController> chassis;
 
