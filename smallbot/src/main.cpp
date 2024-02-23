@@ -29,6 +29,8 @@ void initialize() {
 	pros::lcd::register_btn1_cb(on_center_button);
 
 	pros::Task guiTask(gui);
+
+	flapPiston.set_value(true);
 }
 
 /**
@@ -37,6 +39,7 @@ void initialize() {
  * the robot is enabled, this task will exit.
  */
 void disabled() {
+	flapPiston.set_value(true);
 }
 
 /**
@@ -83,7 +86,7 @@ void opcontrol() {
 	while (true) {
 		driveControl();
 		intakeControl();
-		gui();
+		//gui();
 
 		pros::delay(20);
 	}

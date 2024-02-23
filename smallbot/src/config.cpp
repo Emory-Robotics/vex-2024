@@ -26,9 +26,9 @@ std::shared_ptr<OdomChassisController> chassis =
     		.withOdometry({{4_in, 12.25_in}, quadEncoderTPR})*/
         .withOdometry()
         .withGains(
-            {0.001, 0, 0.0005},
-            {0.001, 0, 0.0005},
-            {0.001, 0, 0.0005}
+            {0.001, 0.0000001, 0.00001},
+            {0.003, 0.0000005, 0.00004},
+            {0.001, 0.0000001, 0.00001}
             /*{0.001, 0.0000001, 0.00001}, // Distance controller gains
             {0.0001, 0.005, 0.0001}, // Turn controller gains
             {0.001, 0.0000001, 0.00001}  // Angle controller gains (helps drive straight)*/
