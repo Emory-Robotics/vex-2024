@@ -33,13 +33,11 @@ void lower(){
         catapult.move_velocity(100);
         pros::delay(20);
     }
-    catapultMotorLeft.move_velocity(0);
-    catapultMotorRight.move_velocity(0);
+    catapult.move_velocity(0);
 }
 void fire(){
     // fire catapult
     catapult.move_velocity(100);
     pros::delay(400);
-    catapultMotorLeft.move_velocity(0);
-    catapultMotorRight.move_velocity(0);
+    catapult.move_velocity(0);
 }

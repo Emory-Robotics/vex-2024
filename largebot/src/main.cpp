@@ -26,10 +26,10 @@ void initialize() {
 	pros::lcd::initialize();
 
 	pros::Task guiTask(gui);
-	pros::Task catapultTask(catapultControl);
 
 	intakeMotor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	catapult.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
+	catapult.tare_position();
 }
 
 /**
@@ -38,6 +38,7 @@ void initialize() {
  * the robot is enabled, this task will exit.
  */
 void disabled() {
+	chassis->stop();
 }
 
 /**
@@ -81,8 +82,7 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	catapultMotorLeft.tare_position();
-	catapultMotorRight.tare_position();
+	pros::Task catapultTask(catapultControl);
 
 	while (true) {
 		driveControl();
