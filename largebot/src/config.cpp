@@ -16,6 +16,7 @@ pros::ADIDigitalOut intakePiston ('B');
 pros::Motor catapultMotorLeft(8, pros::E_MOTOR_GEARSET_36, true);
 pros::Motor catapultMotorRight(9, pros::E_MOTOR_GEARSET_36);
 pros::Motor_Group catapult({catapultMotorLeft, catapultMotorRight});
+pros::Distance distanceSensor(20);
 
 pros::Vision visionSensor(11);
 

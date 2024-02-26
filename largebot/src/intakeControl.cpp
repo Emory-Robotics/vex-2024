@@ -21,7 +21,10 @@ void intakeControl(){
 void intake(){
     // intake one triball (for autonomous)
     intakeMotor.move(-max_analog);
-    pros::delay(2000);
+    while(distanceSensor.get() > 80){
+        pros::delay(50);
+    }
+    pros::delay(100);
     intakeMotor.move(0);
 }
 void score(){

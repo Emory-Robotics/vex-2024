@@ -8,9 +8,9 @@ void auton(){
     lower();
     intakePiston.set_value(false);
     chassis->moveDistance(-1_ft);
-    for(int i = 0; i < 5; i++){
+    for(int i = 0; i < 10; i++){
         lower();
-        chassis->moveDistance(1_ft);
+        chassis->moveDistance(13_in);
         intake();
         chassis->moveDistance(-1_ft);
         fire();

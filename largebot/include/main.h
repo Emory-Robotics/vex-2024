@@ -85,6 +85,7 @@ extern pros::ADIDigitalOut intakePiston;
 extern pros::Motor catapultMotorLeft;
 extern pros::Motor catapultMotorRight;
 extern pros::Motor_Group catapult;
+extern pros::Distance distanceSensor;
 
 extern pros::Vision visionSensor;
 
