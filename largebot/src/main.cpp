@@ -1,20 +1,7 @@
 #include "main.h"
 
-/**
- * A callback function for LLEMU's center button.
- *
- * When this callback is fired, it will toggle line 2 of the LCD text between
- * "I was pressed!" and nothing.
- */
-void on_center_button() {
-	static bool pressed = false;
-	pressed = !pressed;
-	if (pressed) {
-		pros::lcd::set_text(2, "I was pressed!");
-	} else {
-		pros::lcd::clear_line(2);
-	}
-}
+pros::task_t catapultTaskAuton = (pros::task_t)NULL;
+pros::task_t catapultTaskOP = (pros::task_t)NULL;
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -26,6 +13,7 @@ void initialize() {
 	pros::lcd::initialize();
 
 	pros::Task guiTask(gui);
+	pros::delay(20);
 
 	intakeMotor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 	catapult.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
@@ -39,6 +27,13 @@ void initialize() {
  */
 void disabled() {
 	chassis->stop();
+	if(catapultTaskAuton){
+		pros::Task(catapultTaskAuton).remove();
+	}
+	if(catapultTaskOP){
+		pros::Task(catapultTaskOP).remove();
+	}
+	pros::delay(20);
 }
 
 /**
@@ -65,6 +60,7 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
+	pros::Task catapultTaskAuton(catapultControlAuton);
 	auton();
 }
 
@@ -82,7 +78,7 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	pros::Task catapultTask(catapultControl);
+	pros::Task catapultTaskOP(catapultControlOP);
 
 	while (true) {
 		driveControl();

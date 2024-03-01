@@ -100,9 +100,13 @@ void gui(void);
 void intakeControl(void);
 void intake(void);
 void score(void);
-void catapultControl(void);
+void catapultControlAuton(void);
+void catapultControlOP(void);
 void lower(void);
 void fire(void);
+
+// variables
+extern int launching;
 
 #ifdef __cplusplus
 }

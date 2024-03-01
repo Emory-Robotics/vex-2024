@@ -5,15 +5,15 @@ void auton(){
     chassis->setState({0_in, 0_in, 0_deg});
     pros::delay(50);
 
-    lower();
+    launching = 2; //lower();
     intakePiston.set_value(false);
     chassis->moveDistance(-1_ft);
-    for(int i = 0; i < 10; i++){
-        lower();
+    for(int i = 0; i < 15; i++){
+        launching = 2; //lower();
         chassis->moveDistance(13_in);
         intake();
         chassis->moveDistance(-1_ft);
-        fire();
+        launching = 1; //fire();
         pros::delay(1000);
     }
     
