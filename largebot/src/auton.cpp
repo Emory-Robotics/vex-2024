@@ -7,14 +7,22 @@ void auton(){
 
     launching = 2; //lower();
     intakePiston.set_value(false);
-    chassis->moveDistance(-1_ft);
+    chassis->moveDistance(-3_in);
     for(int i = 0; i < 15; i++){
         launching = 2; //lower();
-        chassis->moveDistance(13_in);
+        pros::delay(250);
+        chassis->moveDistance(3_in);
         intake();
-        chassis->moveDistance(-1_ft);
+        chassis->moveDistance(-3_in);
+        chassis->turnAngle(20_deg);
+
         launching = 1; //fire();
-        pros::delay(1000);
+        pros::delay(500);
+        /*catapult.move_velocity(100);
+        pros::delay(500);
+        catapult.move_velocity(0);*/
+
+        chassis->turnAngle(-20_deg);
     }
     
 

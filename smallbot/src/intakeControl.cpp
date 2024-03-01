@@ -13,10 +13,10 @@ void intakeControl(){
     }
 
     if(master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
-        flapPiston.set_value(false); // extend
+        flapPiston.set_value(true); // extend
     }
     if(master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)){
-        flapPiston.set_value(true); // retract
+        flapPiston.set_value(false); // retract
     }
 }
 void intake(){

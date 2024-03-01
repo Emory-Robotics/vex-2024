@@ -27,7 +27,7 @@ std::shared_ptr<OdomChassisController> chassis =
         .withOdometry()
         .withGains(
             {0.001, 0.0000001, 0.00001},
-            {0.003, 0.0000005, 0.00004},
+            {0.003, 0.0000005, 0.00005},
             {0.001, 0.0000001, 0.00001}
             /*{0.001, 0.0000001, 0.00001}, // Distance controller gains
             {0.0001, 0.005, 0.0001}, // Turn controller gains
