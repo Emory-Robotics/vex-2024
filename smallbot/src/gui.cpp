@@ -25,5 +25,7 @@ void gui(){
 
         pros::lcd::print(6, "Battery: %f", pros::battery::get_capacity());
         pros::lcd::print(7, "Controller Battery: %d", master.get_battery_level());
+        
+        pros::delay(20);
     }
 }
