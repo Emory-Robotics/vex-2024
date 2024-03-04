@@ -18,7 +18,7 @@ std::shared_ptr<OdomChassisController> chassis =
       ChassisControllerBuilder()
         .withMotors({-1, -3}, {2, 4})
         // Blue gearset, 4 in in wheel diam, 26 cm in wheel track
-        .withDimensions({AbstractMotor::gearset::blue, (84.0 / 36.0)}, {{4_in, 10.5_in}, imev5BlueTPR})
+        .withDimensions({AbstractMotor::gearset::blue, (84.0 / 36.0)}, {{4_in, 11.5_in}, imev5BlueTPR})
         /*.withSensors(
           RotationSensor{16, true}, // Left encoder in V5 port 16 (reversed, the rotation sensors are flipped)
           RotationSensor{6}  // Right encoder in V5 port 6
@@ -27,11 +27,8 @@ std::shared_ptr<OdomChassisController> chassis =
         .withOdometry()
         .withGains(
             {0.001, 0.0000001, 0.00001},
-            {0.0025, 0.00005, 0.000025},
+            {0.0015, 0.000001, 0.00002},
             {0.001, 0.0000001, 0.00001}
-            /*{0.001, 0.0000001, 0.00001}, // Distance controller gains
-            {0.0022, 0.000006, 0.00005}, // Turn controller gains
-            {0.001, 0.0000001, 0.00001}  // Angle controller gains (helps drive straight)*/
           )
         /*.withDerivativeFilters(
             std::make_unique<AverageFilter<3>>(), // Distance controller filter

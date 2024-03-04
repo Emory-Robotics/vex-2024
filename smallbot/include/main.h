@@ -86,6 +86,7 @@ extern pros::Vision visionSensor;
 extern std::shared_ptr<OdomChassisController> chassis;
 
 // functions
+void skillsAuton();
 void auton(void);
 void driveControl(void);
 void gui(void);
