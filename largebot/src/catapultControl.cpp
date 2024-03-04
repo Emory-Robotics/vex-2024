@@ -56,7 +56,7 @@ void lower(){
 void fire(){
     // fire catapult
     catapult.move_velocity(100);
-    pros::delay(500);
+    pros::delay(1000);
     catapult.move_velocity(0);
     lower();
 }
