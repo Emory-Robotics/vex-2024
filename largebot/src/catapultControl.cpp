@@ -7,10 +7,17 @@ void catapultControlAuton(){
     // overall catapult control, for simultaneos  movement
     while(true){
         if(launching == 2){
-            lower();
-            launching = 0;
+            if(buttonSensor.get_value() == 0){
+                catapult.move_velocity(100);
+                pros::delay(20);
+            } else {
+                catapult.move_velocity(0);
+                launching = 0;
+            }
         } else if(launching == 1){
-            fire();
+            catapult.move_velocity(100);
+            pros::delay(2000);
+            catapult.move_velocity(0);
             launching = 0;
         }
         pros::delay(20);

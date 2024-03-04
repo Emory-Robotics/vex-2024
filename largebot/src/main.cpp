@@ -61,6 +61,7 @@ void competition_initialize() {
  */
 void autonomous() {
 	pros::Task catapultTaskAuton(catapultControlAuton);
+	pros::delay(20);
 	auton();
 }
 
@@ -79,6 +80,7 @@ void autonomous() {
  */
 void opcontrol() {
 	pros::Task catapultTaskOP(catapultControlOP);
+	pros::delay(20);
 
 	while (true) {
 		driveControl();

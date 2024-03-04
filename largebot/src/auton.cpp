@@ -11,7 +11,7 @@ void auton(){
     for(int i = 0; i < 15; i++){
         launching = 2; //lower();
         pros::delay(250);
-        chassis->moveDistance(3_in);
+        chassis->moveDistance(4_in);
         intake();
         chassis->moveDistance(-3_in);
         chassis->turnAngle(20_deg);
