@@ -4,7 +4,7 @@
 int launching = 0;
 
 void catapultControlAuton(){
-    // overall catapult control, for simultaneos  movement
+    // auton catapult control, for simultaneos  movement
     while(true){
         if(launching == 2){
             if(buttonSensor.get_value() == 0){
