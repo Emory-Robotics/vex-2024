@@ -15,17 +15,15 @@ void skillsAuton(){
     chassis->turnAngle(45_deg);
     flapPiston.set_value(true);
     pros::delay(45000);
+
+    chassis->setMaxVelocity(chassis->getMaxVelocity() * 0.5);
     chassis->moveDistance(36_in);
-    chassis->turnAngle(-135_deg);
-    chassis->moveDistance(24_in);
+    chassis->turnAngle(-115_deg);
+    chassis->moveDistanceAsync(48_in);
+    pros::delay(2500);
+    chassis->stop();
     //score();
     flapPiston.set_value(false);
-    chassis->moveDistance(-24_in);
-    chassis->turnAngle(90_deg);
-    chassis->moveDistance(24_in);
-    chassis->turnAngle(-90_deg);
-    flapPiston.set_value(true);
-    chassis->moveDistance(24_in);
     chassis->moveDistance(-24_in);
 }
 
