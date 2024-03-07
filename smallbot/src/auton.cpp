@@ -19,10 +19,14 @@ void skillsAuton(){
     chassis->setMaxVelocity(chassis->getMaxVelocity() * 0.5);
     chassis->moveDistance(36_in);
     chassis->turnAngle(-115_deg);
+    chassis->setMaxVelocity(chassis->getMaxVelocity() * 2);
+    intakeMotor.move(128);
     chassis->moveDistanceAsync(48_in);
     pros::delay(2500);
     chassis->stop();
     //score();
+    chassis->setMaxVelocity(chassis->getMaxVelocity() * 0.5);
+    intakeMotor.move(0);
     flapPiston.set_value(false);
     chassis->moveDistance(-24_in);
 }
