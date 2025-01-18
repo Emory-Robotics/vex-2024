@@ -1,8 +1,5 @@
 #include "main.h"
 
-pros::task_t catapultTaskAuton = (pros::task_t)NULL;
-pros::task_t catapultTaskOP = (pros::task_t)NULL;
-
 /**
  * Runs initialization code. This occurs as soon as the program is started.
  *
@@ -14,10 +11,6 @@ void initialize() {
 
 	pros::Task guiTask(gui);
 	pros::delay(20);
-
-	intakeMotor.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-	catapult.set_brake_modes(pros::E_MOTOR_BRAKE_HOLD);
-	catapult.tare_position();
 }
 
 /**
@@ -26,14 +19,8 @@ void initialize() {
  * the robot is enabled, this task will exit.
  */
 void disabled() {
+	flapPiston.set_value(false);
 	chassis->stop();
-	if(catapultTaskAuton){
-		pros::Task(catapultTaskAuton).remove();
-	}
-	if(catapultTaskOP){
-		pros::Task(catapultTaskOP).remove();
-	}
-	pros::delay(20);
 }
 
 /**
@@ -60,9 +47,8 @@ void competition_initialize() {
  * from where it left off.
  */
 void autonomous() {
-	pros::Task catapultTaskAuton(catapultControlAuton);
-	pros::delay(20);
 	auton();
+	//skillsAuton();
 }
 
 /**
@@ -79,13 +65,9 @@ void autonomous() {
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	pros::Task catapultTaskOP(catapultControlOP);
-	pros::delay(20);
-
 	while (true) {
 		driveControl();
 		intakeControl();
-		//catapultControl();
 		//gui();
 
 		pros::delay(20);

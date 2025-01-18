@@ -21,11 +21,11 @@ void gui(){
         //pros::lcd::print(5, "backLeft W: %i, backRight W: %i", backLeft.get_power(), backRight.get_power());
 
         pros::lcd::print(4, chassis->getState().str().c_str());
-
-        pros::lcd::print(5, "cL C: %f, cR C: %f", catapultMotorLeft.get_temperature(), catapultMotorRight.get_temperature());
+        pros::lcd::print(5, " ");
 
         pros::lcd::print(6, "Battery: %f", pros::battery::get_capacity());
         pros::lcd::print(7, "Controller Battery: %d", master.get_battery_level());
+        
         pros::delay(20);
     }
 }

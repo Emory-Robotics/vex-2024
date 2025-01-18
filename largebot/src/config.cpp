@@ -3,30 +3,32 @@
 pros::Controller master(pros::E_CONTROLLER_MASTER);
 pros::Controller partner(pros::E_CONTROLLER_PARTNER);
 
-pros::Motor frontLeft(1, pros::E_MOTOR_GEARSET_06);
 pros::Motor frontRight(2, pros::E_MOTOR_GEARSET_06);
-pros::Motor midLeft(3, pros::E_MOTOR_GEARSET_06);
-pros::Motor midRight(4, pros::E_MOTOR_GEARSET_06);
-pros::Motor backLeft(5, pros::E_MOTOR_GEARSET_06);
-pros::Motor backRight(6, pros::E_MOTOR_GEARSET_06);
+pros::Motor backRight(4, pros::E_MOTOR_GEARSET_06);
+pros::Motor frontLeft(1, pros::E_MOTOR_GEARSET_06);
+pros::Motor backLeft(3, pros::E_MOTOR_GEARSET_06);
 
-pros::Motor intakeMotor(7, pros::E_MOTOR_GEARSET_18);
-pros::ADIDigitalOut intakePiston ('B');
+pros::Motor intakeMotor(21, pros::E_MOTOR_GEARSET_06);
 
-pros::Motor catapultMotorLeft(8, pros::E_MOTOR_GEARSET_36, true);
-pros::Motor catapultMotorRight(9, pros::E_MOTOR_GEARSET_36);
-pros::Motor_Group catapult({catapultMotorLeft, catapultMotorRight});
-pros::Distance distanceSensor(20);
+pros::Motor intakeMotorLeft(5, pros::E_MOTOR_GEARSET_06);
+pros::Motor intakeMotorRight(6, pros::E_MOTOR_GEARSET_06);
+
+pros::Motor elevatorMotorLeft(7, pros::E_MOTOR_GEARSET_06);
+pros::Motor elevatorMotorRight(8, pros::E_MOTOR_GEARSET_06);
+
+pros::Motor armMotorLeft(9, pros::E_MOTOR_GEARSET_36);
+pros::Motor armMotorRight(10, pros::E_MOTOR_GEARSET_36);
+
+
+pros::ADIDigitalOut flapPiston ('A');
 
 pros::Vision visionSensor(11);
 
-pros::ADIDigitalIn buttonSensor ('A');
-
 std::shared_ptr<OdomChassisController> chassis =
       ChassisControllerBuilder()
-        .withMotors({-1, -3, -5}, {2, 4, 6})
-        // Blue gearset, 4 in in wheel diam, 40 cm in wheel track
-        .withDimensions({AbstractMotor::gearset::blue, (84.0 / 36.0)}, {{4_in, 16_in}, imev5BlueTPR})
+        .withMotors({-1, -3}, {2, 4})
+        // Blue gearset, 4 in in wheel diam, 26 cm in wheel track
+        .withDimensions({AbstractMotor::gearset::blue, (84.0 / 36.0)}, {{4_in, 14.5_in}, imev5BlueTPR})
         /*.withSensors(
           RotationSensor{16, true}, // Left encoder in V5 port 16 (reversed, the rotation sensors are flipped)
           RotationSensor{6}  // Right encoder in V5 port 6
@@ -34,9 +36,9 @@ std::shared_ptr<OdomChassisController> chassis =
     		.withOdometry({{4_in, 12.25_in}, quadEncoderTPR})*/
         .withOdometry()
         .withGains(
-            {0.001, 0.0000001, 0.00001}, // Distance controller gains
-            {0.003, 0.00000015, 0.0001}, // Turn controller gains
-            {0.001, 0.0000001, 0.00001} // Angle controller gains (helps drive straight)
+            {0.001, 0.0000001, 0.00001},
+            {0.0015, 0.000001, 0.00002},
+            {0.001, 0.0000001, 0.00001}
           )
         /*.withDerivativeFilters(
             std::make_unique<AverageFilter<3>>(), // Distance controller filter

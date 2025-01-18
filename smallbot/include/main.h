@@ -77,7 +77,14 @@ extern pros::Motor backLeft;
 extern pros::Motor frontRight;
 extern pros::Motor backRight;
 
-extern pros::Motor intakeMotor;
+extern pros::Motor intakeMotorLeft;
+extern pros::Motor intakeMotorRight;
+
+extern pros::Motor elevatorMotorLeft;
+extern pros::Motor elevatorMotorRight;
+
+extern pros::Motor armMotorLeft;
+extern pros::Motor armMotorRight;
 
 extern pros::ADIDigitalOut flapPiston;
 

@@ -73,40 +73,33 @@ extern pros::Controller master;
 extern pros::Controller partner;
 
 extern pros::Motor frontLeft;
-extern pros::Motor midLeft;
 extern pros::Motor backLeft;
 extern pros::Motor frontRight;
-extern pros::Motor midRight;
 extern pros::Motor backRight;
 
-extern pros::Motor intakeMotor;
-extern pros::ADIDigitalOut intakePiston;
+extern pros::Motor intakeMotorLeft;
+extern pros::Motor intakeMotorRight;
 
-extern pros::Motor catapultMotorLeft;
-extern pros::Motor catapultMotorRight;
-extern pros::Motor_Group catapult;
-extern pros::Distance distanceSensor;
+extern pros::Motor elevatorMotorLeft;
+extern pros::Motor elevatorMotorRight;
+
+extern pros::Motor armMotorLeft;
+extern pros::Motor armMotorRight;
+
+extern pros::ADIDigitalOut flapPiston;
 
 extern pros::Vision visionSensor;
-
-extern pros::ADIDigitalIn buttonSensor;
 
 extern std::shared_ptr<OdomChassisController> chassis;
 
 // functions
+void skillsAuton();
 void auton(void);
 void driveControl(void);
 void gui(void);
 void intakeControl(void);
 void intake(void);
 void score(void);
-void catapultControlAuton(void);
-void catapultControlOP(void);
-void lower(void);
-void fire(void);
-
-// variables
-extern int launching;
 
 #ifdef __cplusplus
 }
