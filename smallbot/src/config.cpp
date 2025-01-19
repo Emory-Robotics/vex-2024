@@ -19,6 +19,7 @@ pros::Motor armMotorRight(10, pros::E_MOTOR_GEARSET_36);
 
 
 pros::ADIDigitalOut flapPiston ('A');
+pros::ADIDigitalOut doinker ('B');
 
 pros::Vision visionSensor(11);
 

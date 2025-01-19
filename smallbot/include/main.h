@@ -87,6 +87,7 @@ extern pros::Motor armMotorLeft;
 extern pros::Motor armMotorRight;
 
 extern pros::ADIDigitalOut flapPiston;
+extern pros::ADIDigitalOut doinker;
 
 extern pros::Vision visionSensor;
 

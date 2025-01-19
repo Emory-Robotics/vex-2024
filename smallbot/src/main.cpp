@@ -11,6 +11,15 @@ void initialize() {
 
 	pros::Task guiTask(gui);
 	pros::delay(20);
+
+	intakeMotorLeft.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+    intakeMotorRight.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+
+    elevatorMotorLeft.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+    elevatorMotorRight.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+
+    armMotorLeft.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
+    armMotorRight.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 }
 
 /**
