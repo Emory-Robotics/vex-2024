@@ -8,8 +8,6 @@ pros::Motor backRight(4, pros::E_MOTOR_GEARSET_06);
 pros::Motor frontLeft(1, pros::E_MOTOR_GEARSET_06);
 pros::Motor backLeft(3, pros::E_MOTOR_GEARSET_06);
 
-pros::Motor intakeMotor(21, pros::E_MOTOR_GEARSET_06);
-
 pros::Motor intakeMotorLeft(5, pros::E_MOTOR_GEARSET_06);
 pros::Motor intakeMotorRight(6, pros::E_MOTOR_GEARSET_06);
 
@@ -18,7 +16,6 @@ pros::Motor elevatorMotorRight(8, pros::E_MOTOR_GEARSET_06);
 
 pros::Motor armMotorLeft(9, pros::E_MOTOR_GEARSET_36);
 pros::Motor armMotorRight(10, pros::E_MOTOR_GEARSET_36);
-
 
 pros::ADIDigitalOut flapPiston ('A');
 
@@ -36,9 +33,12 @@ std::shared_ptr<OdomChassisController> chassis =
     		.withOdometry({{4_in, 12.25_in}, quadEncoderTPR})*/
         .withOdometry()
         .withGains(
+            /*{0.001, 0.0000001, 0.00001},
             {0.001, 0.0000001, 0.00001},
-            {0.0015, 0.000001, 0.00002},
-            {0.001, 0.0000001, 0.00001}
+            {0.001, 0.0000001, 0.00001}*/
+            {0.001, 0.0000001, 0.00001},
+            {0.0008, 0.0000120, 0.000001},
+            {0.0, 0.0, 0.0}
           )
         /*.withDerivativeFilters(
             std::make_unique<AverageFilter<3>>(), // Distance controller filter

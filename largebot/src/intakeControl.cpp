@@ -1,16 +1,10 @@
 #include "main.h"
-#define max_analog 84.0 //maximum analog signal, used for scaling when driver input exceeds said value (max is 128)
+#define max_analog 80.0 //maximum analog signal, used for scaling when driver input exceeds said value (max is 128)
+bool clampToggle = true;
+int clampDelay = 10;
 
 void intakeControl(){
     // intake control code (for driver control)
-    intakeMotorLeft.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-    intakeMotorRight.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-
-    elevatorMotorLeft.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-    elevatorMotorRight.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-
-    armMotorLeft.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
-    armMotorRight.set_brake_mode(pros::E_MOTOR_BRAKE_HOLD);
 
     if(master.get_digital(pros::E_CONTROLLER_DIGITAL_L1)){
         intakeMotorLeft.move(max_analog);
@@ -43,11 +37,17 @@ void intakeControl(){
         armMotorRight.move_velocity(0);
     }
 
-    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_UP)){
-        flapPiston.set_value(true); // extend
+    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_A) && clampDelay <= 0){
+        clampToggle = !clampToggle;
+        clampDelay = 10;
     }
-    if(master.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)){
-        flapPiston.set_value(false); // retract
+
+    clampDelay -= 1;
+
+    if(clampToggle){
+        flapPiston.set_value(true); // open
+    } else if(!clampToggle){
+        flapPiston.set_value(false); // close
     }
 }
 void intake(){

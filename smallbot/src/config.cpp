@@ -8,8 +8,6 @@ pros::Motor backRight(4, pros::E_MOTOR_GEARSET_06);
 pros::Motor frontLeft(1, pros::E_MOTOR_GEARSET_06);
 pros::Motor backLeft(3, pros::E_MOTOR_GEARSET_06);
 
-pros::Motor intakeMotor(21, pros::E_MOTOR_GEARSET_06);
-
 pros::Motor intakeMotorLeft(5, pros::E_MOTOR_GEARSET_06);
 pros::Motor intakeMotorRight(6, pros::E_MOTOR_GEARSET_06);
 
